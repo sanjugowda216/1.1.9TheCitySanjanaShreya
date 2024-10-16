@@ -25,7 +25,7 @@ def farbuildings():
     global building_gradient
     t.speed(0)
     t.penup()
-    t.goto(-400,-120)
+    t.goto(-400,-150)
     t.pendown()
     t.pensize(0)
     t.setheading(90)
