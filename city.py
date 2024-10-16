@@ -27,7 +27,7 @@ def farbuildings():
     t.penup()
     t.goto(-400,-150)
     t.pendown()
-    t.pensize(0)
+    t.pensize(1)
     t.setheading(90)
     for row in range(4):
         
@@ -45,7 +45,22 @@ def farbuildings():
         t.goto(-400, t.ycor() - 50) 
         t.pendown()
         t.setheading(90)
-
+def wave():
+    t.penup()
+    t.goto(600, -300)  # Start position for the waves
+    t.pendown()
+    t.pencolor("blue")
+    t.fillcolor("lightblue")
+    t.begin_fill()
+    
+    for splash in range(10):
+        t.circle(50, 180)  # Draw half-circle
+        t.left(180)       # Turn around to draw the next half-circle
+        t.penup()
+        t.pendown()
+    
+    t.end_fill()
 farbuildings()
+wave()
 turtle.speed(0)
 turtle.done()
