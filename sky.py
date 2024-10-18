@@ -2,34 +2,52 @@
 import turtle as trtl
 from turtle import Screen
 screen = Screen()
-cloud1_gradient = ['steelblue', 'skyblue', 'lightblue','powderblue']
+cloud1_gradient = ['powderblue', 'skyblue', 'lightblue','lightskyblue']
 
 screen.colormode(255)
 screen.screensize(canvwidth=800, canvheight=800)
-painter = trtl.Turtle()
-painter.speed(0)
-painter.width(20)
+t = trtl.Turtle()
+t.speed(0)
+t.width(45)
 
-def sun():
+
+def sky():
     x = 6 
     h = 0 
     y = 255
     z = 239
     g = 213
-    for h in range(10):
-        painter.penup()
-        painter.goto(x/(x*x*x*x), x/(x*x*x))
-        painter.pendown()
+    for h in range(40):
+        t.penup()
+        t.goto(x/(x*x*x*x), -300+x/(x*x*x))
+        t.pendown()
         y -= 1
         z -= 3
         g -= 1
-        painter.color(g,y,z)
-        painter.circle(x)
-        x += 6
+        t.color(y,z,g)
+        t.circle(x)
+        x += 20
         h += 1
 
-##replace xcord and ycord w user input 
-xcord = 0
+
+def sun():
+    x = 6 
+    h = 0 
+    y = 255
+    z = 255
+    g = 255
+    for h in range(5):
+        t.penup()
+        t.goto(x/(x*x*x*x), x/(x*x*x))
+        t.pendown()
+        y -= 1
+        z -= 3
+        g -= 1
+        t.color(y,z,g)
+        t.circle(x)
+        x += 20
+        h += 1
+xcord = 45
 ycord = 0
 def cloud1():
     global cloud1_gradient
@@ -69,14 +87,14 @@ def cloud2():
     global ycord
     trtl.speed(0)
     trtl.penup()
-    xcord+=40
-    ycord+=67
+    xcord+=10
+    ycord+=3
     trtl.goto(xcord,ycord)
     trtl.pendown()
     trtl.pensize(5)
     trtl.setheading(90)
-    number_list = [10,-13,-14,15,-16,19,-15,-13,17,-16,14,12,-17,-18,-19,-13,-13,-15,-16,19,23,24,-23,-19,26,23,13,14,15,16,19]
-    gg_list = [56,78,90,-90,67,-78,56,-35,47,-88,99,-34,90,-65,43,-19,293,-270,-67,23,245,25,20]
+    number_list = [10,-13,-14,25,-16,19,-15,-23,17,-16,24,12,-27,-18,-19,-13,-13,-15,-16,19,23,24,-23,-19,26,23,13,14,15,16,19]
+    gg_list = [56,78,90,-90,67,-78,56,-35,47,-88,99,-34,30,-65,43,-19,293,-270,-67,23,245,25,20]
     for row in range(2):
         pop = cloud1_gradient.pop()
         trtl.fillcolor(pop)
@@ -99,8 +117,12 @@ def cloud2():
 ohdear = input("would you like to see clouds?")
 y = ["yes","y","Y","YES","Yes"]
 if ohdear in y:
+    sky()
     sun()
     cloud1()
     cloud2()
 else:
+    sky()
     sun()
+
+trtl.done()
