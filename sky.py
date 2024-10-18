@@ -9,37 +9,25 @@ screen.screensize(canvwidth=800, canvheight=800)
 painter = trtl.Turtle()
 painter.speed(0)
 painter.width(20)
-global g
-g = 255
-global y
-y = 239
-global z
-z = 213
-def turtlecolor():
-    global g
-    global y
-    global z
-    y -= 1
-    z -= 3
-    g -= 1
-    painter.color(g,y,z)
-
-global h
-h = 0
-
-global x
-x = 6
 
 def sun():
-    global x 
+    x = 6 
+    h = 0 
+    y = 255
+    z = 239
+    g = 213
     for h in range(10):
         painter.penup()
         painter.goto(x/(x*x*x*x), x/(x*x*x))
         painter.pendown()
-        turtlecolor()
+        y -= 1
+        z -= 3
+        g -= 1
+        painter.color(g,y,z)
         painter.circle(x)
         x += 6
         h += 1
+
 ##replace xcord and ycord w user input 
 xcord = 0
 ycord = 0
@@ -107,7 +95,12 @@ def cloud2():
             trtl.goto(-xcord,-ycord)
             trtl.pendown()
         row+=1
-   
-sun()
-cloud1()
-cloud2()
+
+ohdear = input("would you like to see clouds?")
+y = ["yes","y","Y","YES","Yes"]
+if ohdear in y:
+    sun()
+    cloud1()
+    cloud2()
+else:
+    sun()
