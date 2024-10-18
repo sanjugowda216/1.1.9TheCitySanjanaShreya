@@ -65,7 +65,7 @@ def wave():
         t.pendown()
 
 wavesplease = input("Would you like the cityscape to be behind an ocean?")
-if wavesplease == "yes":
+if wavesplease =="yes" or "y" or "YES" or "Yes" or "Y":
     farbuildings()
     wave()
 else:
