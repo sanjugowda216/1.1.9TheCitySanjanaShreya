@@ -42,7 +42,7 @@ def farbuildings():
             
         t.end_fill()
         t.penup()
-        t.goto(-400, t.ycor() - 50) 
+        t.goto(-400, t.ycor() - 70) 
         t.pendown()
         t.setheading(90)
 def wave():
@@ -64,7 +64,14 @@ def wave():
         t.goto(600, t.ycor() - 20) 
         t.pendown()
 
-farbuildings()
-wave()
+wavesplease = input("Would you like the cityscape to be behind an ocean?")
+if wavesplease == "yes":
+    farbuildings()
+    wave()
+else:
+    farbuildings()
+
+
+
 turtle.speed(0)
 turtle.done()
