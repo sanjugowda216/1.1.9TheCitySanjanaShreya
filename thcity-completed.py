@@ -144,7 +144,7 @@ def building():
         
 # sanjana
 
-def farbuildings():
+def farbuildings(build):
     global building_gradient
     t.speed(0)
     t.penup()
@@ -168,7 +168,7 @@ def farbuildings():
         t.penup()
         t.goto(-400, t.ycor() - 70) 
         t.pendown()
-        t.setheading(90)
+        t.setheading(build)
 def wave():
     t.penup()
     t.goto(600, -300)  
@@ -191,10 +191,10 @@ def wave():
 wavesplease = input("Would you like the cityscape to be behind an ocean?")
 y = ["yes","y","Y","YES","Yes"]
 if wavesplease in y:
-    farbuildings()
+    farbuildings(90)
     wave()
 else:
-    farbuildings()
+    farbuildings(90)
 
 trtl.speed(0)
 trtl.done()
