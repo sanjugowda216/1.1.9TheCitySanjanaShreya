@@ -1,4 +1,3 @@
-
 import turtle as trtl
 from turtle import Screen
 screen = Screen()
@@ -10,7 +9,6 @@ t = trtl.Turtle()
 t.speed(0)
 t.width(45)
 
-
 def sky():
     x = 6 
     h = 0 
@@ -19,7 +17,7 @@ def sky():
     g = 213
     for h in range(40):
         t.penup()
-        t.goto(x/(x*x*x*x), -300+x/(x*x*x))
+        t.goto(x/(x*x*x*x), -30+x/(x*x*x))
         t.pendown()
         y -= 1
         z -= 3
@@ -28,7 +26,6 @@ def sky():
         t.circle(x)
         x += 20
         h += 1
-
 
 def sun():
     x = 6 
@@ -49,7 +46,7 @@ def sun():
         h += 1
 xcord = 45
 ycord = 0
-def cloud1():
+def cloud1(selfie):
     global cloud1_gradient
     global xcord
     global ycord
@@ -67,7 +64,7 @@ def cloud1():
         trtl.color(pop)
         for b in range(7):
             trtl.begin_fill()
-            trtl.circle(30)
+            trtl.circle(selfie)
             trtl.end_fill()
             rand = number_list.pop()
             xcord+=rand
@@ -81,7 +78,7 @@ def cloud1():
         row+=1
    
 
-def cloud2():
+def cloud2(self):
     global cloud1_gradient
     global xcord
     global ycord
@@ -105,7 +102,7 @@ def cloud2():
             rand = number_list.pop()
             ycord-=rand
             trtl.begin_fill()
-            trtl.circle(30)
+            trtl.circle(self)
             trtl.end_fill()
             trtl.penup()
             angle = gg_list.pop()
@@ -119,8 +116,8 @@ y = ["yes","y","Y","YES","Yes"]
 if ohdear in y:
     sky()
     sun()
-    cloud1()
-    cloud2()
+    cloud1(30)
+    cloud2(40)
 else:
     sky()
     sun()
